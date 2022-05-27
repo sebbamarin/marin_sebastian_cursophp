@@ -73,8 +73,7 @@
 			<div class="row justify-content-start align-items-center">
 				<div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
 					<div class="overlay overlay-bg"></div>
-					<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid"
-							src="img/play-icon.png" alt=""></a>
+					<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
 				</div>
 				<div class="col-lg-6 video-left">
 					<h6>Conoce el proceso de como hacemos nuestro café.</h6>
@@ -92,6 +91,7 @@
 	</section>
 	<!-- End video-sec Area -->
 
+	<?php define('unitValueCoffee', 100); ?>
 	<!-- Start menu Area -->
 	<section class="menu-area section-gap" id="coffee">
 		<div class="container">
@@ -107,9 +107,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Cappuccino</h4>
+							<h4><?= 'Cappuccino'; ?></h4>
 							<p class="price float-right">
-								$250
+								<?= '$' . (unitValueCoffee) * 2.5; ?>
 							</p>
 						</div>
 						<p>
@@ -121,9 +121,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Americano</h4>
+							<h4><?= 'Americano'; ?></h4>
 							<p class="price float-right">
-								$180
+								<?= '$' . (unitValueCoffee) * 1.8; ?>
 							</p>
 						</div>
 						<p>
@@ -134,9 +134,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Espresso</h4>
+							<h4><?= 'Espresso'; ?></h4>
 							<p class="price float-right">
-								$120
+								<?= '$' . (unitValueCoffee) * 1.2; ?>
 							</p>
 						</div>
 						<p>
@@ -147,9 +147,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Macchiato</h4>
+							<h4><?= 'Macchiato'; ?></h4>
 							<p class="price float-right">
-								$220
+								<?= '$' . (unitValueCoffee) * 2.2; ?>
 							</p>
 						</div>
 						<p>
@@ -160,9 +160,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Mocha</h4>
+							<h4><?= 'Mocha'; ?></h4>
 							<p class="price float-right">
-								$350
+								<?= '$' . (unitValueCoffee) * 2.7; ?>
 							</p>
 						</div>
 						<p>
@@ -173,9 +173,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Coffee Latte</h4>
+							<h4><?= 'Coffee Latte'; ?></h4>
 							<p class="price float-right">
-								$200
+								<?= '$' . (unitValueCoffee) * 2; ?>
 							</p>
 						</div>
 						<p>
@@ -186,9 +186,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Piccolo Latte</h4>
+							<h4><?= 'Piccolo Latte'; ?></h4>
 							<p class="price float-right">
-								$220
+								<?= '$' . (unitValueCoffee) * 2.2; ?>
 							</p>
 						</div>
 						<p>
@@ -199,9 +199,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Ristretto</h4>
+							<h4><?= 'Ristretto'; ?></h4>
 							<p class="price float-right">
-								$150
+								<?= '$' . (unitValueCoffee) * 1.5; ?>
 							</p>
 						</div>
 						<p>
@@ -212,9 +212,9 @@
 				<div class="col-lg-4">
 					<div class="single-menu">
 						<div class="title-div justify-content-between d-flex">
-							<h4>Affogato</h4>
+							<h4><?= 'Affogato'; ?></h4>
 							<p class="price float-right">
-								$250
+								<?= '$' . (unitValueCoffee) * 2.5; ?>
 							</p>
 						</div>
 						<p>
@@ -298,7 +298,7 @@
 					</p>
 				</div>
 				<div class="col-lg-6 col-md-6 single-review">
-					<img src="img/r1.png" alt="">
+					<img src="img/r2.png" alt="">
 					<div class="title d-flex flex-row">
 						<h4>Café, café de verdad.</h4>
 						<div class="star">
@@ -397,7 +397,9 @@
 						</p>
 						<p class="footer-text">
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | Sebastian Marin
+							<script>
+								document.write(new Date().getFullYear());
+							</script> All rights reserved | Sebastian Marin
 						</p>
 					</div>
 				</div>
@@ -406,13 +408,9 @@
 						<h6>Novedades</h6>
 						<p>Para estar siempre en contacto</p>
 						<div class="" id="mc_embed_signup">
-							<form target="_blank" novalidate="true"
-								action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-								method="get" class="form-inline">
-								<input class="form-control" name="EMAIL" placeholder="Ingresa tu email" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Ingresa tu email '" required="" type="email">
-								<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
-										aria-hidden="true"></i></button>
+							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+								<input class="form-control" name="EMAIL" placeholder="Ingresa tu email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingresa tu email '" required="" type="email">
+								<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 								<div style="position: absolute; left: -5000px;">
 									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
 								</div>
@@ -440,9 +438,7 @@
 	<!-- End footer Area -->
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/easing.min.js"></script>
 	<script src="js/hoverIntent.js"></script>

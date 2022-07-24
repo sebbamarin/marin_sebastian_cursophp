@@ -38,7 +38,7 @@
 		<div class="row justify-content-start align-items-center">
 			<div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
 				<div class="overlay overlay-bg"></div>
-				<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
+				<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="assets/img/play-icon.png" alt=""></a>
 			</div>
 			<div class="col-lg-6 video-left">
 				<h6>Conoce el proceso de como hacemos nuestro café.</h6>
@@ -48,14 +48,14 @@
 				<p>
 					Desde el inicio hasta el final de tu día, nosotros nos encargamos de hacer tu café.
 				</p>
-				<img class="img-fluid" src="img/signature.png" alt="">
+				<img class="img-fluid" src="assets/img/signature.png" alt="">
 			</div>
 		</div>
 	</div>
 </section>
 <!-- End video-sec Area -->
 
-<!-- Start menu Area -->
+<!-- Start Carta Menu Area -->
 <section class="menu-area section-gap" id="coffee">
 	<div class="container">
 		<div class="row d-flex justify-content-center">
@@ -70,13 +70,13 @@
 							<a class="nav-link active" id="todos-tab" data-toggle="todos" href="/?filter=todos#coffee" role="tab" aria-controls="todos" aria-selected="true">Todos</a>
 						</li>
 						<li class="nav-item m-0">
-							<a class="nav-link active" id="espresso-tab" data-toggle="espresso" href="/?filter=espresso#coffee" role="tab" aria-controls="espresso" aria-selected="false">Espresso</a>
+							<a class="nav-link active" id="espresso-tab" data-toggle="espresso" href="/?filter=1#coffee" role="tab" aria-controls="espresso" aria-selected="false">Espresso</a>
 						</li>
 						<li class="nav-item m-0">
-							<a class="nav-link active" id="latte-tab" data-toggle="latte" href="/?filter=latte#coffee" role="tab" aria-controls="latte" aria-selected="false">Latte</a>
+							<a class="nav-link active" id="latte-tab" data-toggle="latte" href="/?filter=2#coffee" role="tab" aria-controls="latte" aria-selected="false">Latte</a>
 						</li>
 						<li class="nav-item m-0">
-							<a class="nav-link active" id="specials-tab" data-toggle="specials" href="/?filter=specials#coffee" role="tab" aria-controls="specials" aria-selected="false">Specials</a>
+							<a class="nav-link active" id="specials-tab" data-toggle="specials" href="/?filter=3#coffee" role="tab" aria-controls="specials" aria-selected="false">Specials</a>
 						</li>
 					</ul>
 				</div>
@@ -85,17 +85,17 @@
 		<div class="row" style="row-gap: 20px;">
 			<?php while ($coffee = $query->fetch_assoc()) : ?>
 				<?php if (isset($_GET['filter']) && $_GET['filter'] !== 'todos') : ?>
-					<?php if ($_GET['filter'] == $coffee['type_coffee']) : ?>
+					<?php if ($_GET['filter'] == $coffee['coffee_type']) : ?>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4><?= $coffee['name_coffee']; ?></h4>
+									<h4><?= $coffee['coffee_name']; ?></h4>
 									<p class="price float-right">
-										<?= $coffee['price_coffee']; ?>
+										<?= $coffee['coffee_price']; ?>
 									</p>
 								</div>
 								<p>
-									<?= $coffee['description_coffee']; ?>
+									<?= $coffee['coffee_description']; ?>
 								</p>
 							</div>
 						</div>
@@ -104,13 +104,13 @@
 					<div class="col-lg-4">
 						<div class="single-menu">
 							<div class="title-div justify-content-between d-flex">
-								<h4><?= $coffee['name_coffee']; ?></h4>
+								<h4><?= $coffee['coffee_name']; ?></h4>
 								<p class="price float-right">
-									<?= $coffee['price_coffee']; ?>
+									<?= $coffee['coffee_price']; ?>
 								</p>
 							</div>
 							<p>
-								<?= $coffee['description_coffee']; ?>
+								<?= $coffee['coffee_description']; ?>
 							</p>
 						</div>
 					</div>
@@ -119,7 +119,7 @@
 		</div>
 	</div>
 </section>
-<!-- End menu Area -->
+<!-- End Carta Menu Area -->
 
 <!-- Start gallery Area -->
 <section class="gallery-area section-gap" id="gallery">
@@ -134,26 +134,26 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
-				<a href="img/g1.jpg" class="img-pop-home">
-					<img class="img-fluid" src="img/g1.jpg" alt="">
+				<a href="assets/img/g1.jpg" class="img-pop-home">
+					<img class="img-fluid" src="assets/img/g1.jpg" alt="">
 				</a>
-				<a href="img/g2.jpg" class="img-pop-home">
-					<img class="img-fluid" src="img/g2.jpg" alt="">
+				<a href="assets/img/g2.jpg" class="img-pop-home">
+					<img class="img-fluid" src="assets/img/g2.jpg" alt="">
 				</a>
 			</div>
 			<div class="col-lg-8">
-				<a href="img/g3.jpg" class="img-pop-home">
-					<img class="img-fluid" src="img/g3.jpg" alt="">
+				<a href="assets/img/g3.jpg" class="img-pop-home">
+					<img class="img-fluid" src="assets/img/g3.jpg" alt="">
 				</a>
 				<div class="row">
 					<div class="col-lg-6">
-						<a href="img/g4.jpg" class="img-pop-home">
-							<img class="img-fluid" src="img/g4.jpg" alt="">
+						<a href="assets/img/g4.jpg" class="img-pop-home">
+							<img class="img-fluid" src="assets/img/g4.jpg" alt="">
 						</a>
 					</div>
 					<div class="col-lg-6">
-						<a href="img/g5.jpg" class="img-pop-home">
-							<img class="img-fluid" src="img/g5.jpg" alt="">
+						<a href="assets/img/g5.jpg" class="img-pop-home">
+							<img class="img-fluid" src="assets/img/g5.jpg" alt="">
 						</a>
 					</div>
 				</div>
@@ -176,7 +176,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-md-6 single-review">
-				<img src="img/r1.png" alt="">
+				<img src="assets/img/r1.png" alt="">
 				<div class="title d-flex flex-row">
 					<h4>Un aroma que enamora</h4>
 					<div class="star">
@@ -192,7 +192,7 @@
 				</p>
 			</div>
 			<div class="col-lg-6 col-md-6 single-review">
-				<img src="img/r2.png" alt="">
+				<img src="assets/img/r2.png" alt="">
 				<div class="title d-flex flex-row">
 					<h4>Café, café de verdad.</h4>
 					<div class="star">
@@ -243,7 +243,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6 col-md-6 single-blog">
-				<img class="img-fluid" src="img/cafe-moccha.webp" alt="">
+				<img class="img-fluid" src="assets/img/cafe-moccha.webp" alt="">
 				<ul class="post-tags">
 					<li><a href="#">Viajar</a></li>
 					<li><a href="#">Estilo de vida</a></li>
@@ -259,7 +259,7 @@
 				</p>
 			</div>
 			<div class="col-lg-6 col-md-6 single-blog">
-				<img class="img-fluid" src="img/b2.jpg" alt="">
+				<img class="img-fluid" src="assets/img/b2.jpg" alt="">
 				<ul class="post-tags">
 					<li><a href="#">Viajar</a></li>
 					<li><a href="#">Estilo de vida</a></li>

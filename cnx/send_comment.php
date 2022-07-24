@@ -12,8 +12,11 @@ $mail_body = "Nombre: " . $user_name . "\n"
 
 mail($user_email, "Copia de mensaje de Smarin.online", $mail_body);
 
-// $cnx = mysqli_connect("localhost","root","","cursophp") or exit("Error en la conexion");
-$cnx = mysqli_connect("localhost", "c2061385_cursoph", "50vaDUsagi", "c2061385_cursoph") or exit("Error en la conexion");
+if ($_SERVER['HTTP_HOST'] === 'cursophp.test') {
+  $cnx = mysqli_connect("localhost", "root", "", "cursophp") or exit("Error en la conexion");
+} else {
+  $cnx = mysqli_connect("localhost", "c2061385_cursoph", "50vaDUsagi", "c2061385_cursoph") or exit("Error en la conexion");
+}
 
 mysqli_query($cnx,"INSERT INTO contact_users (user_name, user_email, user_phone, user_comment) VALUES ('$user_name', '$user_email', '$user_phone', '$user_comment')");
 

@@ -100,7 +100,7 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_rol'] !== '1')) {
 					<div class="coffee-list-admin col-12 col-md-12 col-lg-8 h-100 d-flex flex-wrap align-items-stretch justify-content-start mb-4 mb-lg-0 p-0 p-lg-3 rounded order-1 order-lg-0">
 						<?php foreach ($coffee_list as $coffee) : ?>
 							<div class="col-12 col-md-6 col-xl-4 p-2">
-								<div class="single-menu h-100 mb-4 p-3">
+								<div class="single-menu mb-4 pt-3 px-3 pb-0">
 									<div class="title-div d-flex justify-content-between pb-1">
 										<?php
 										$type = $coffee['coffee_type'];

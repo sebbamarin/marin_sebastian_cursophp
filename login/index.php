@@ -1,3 +1,5 @@
+<?php include '../components/alerts.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 
@@ -45,6 +47,7 @@
 							</div>
 							<div class="modal-body">
 								<form action="../cnx/login.php" method="POST">
+									<!--  class="was-validated" -->
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group">
@@ -62,7 +65,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="/" class="btn btn-secondary">Cancelar</a>
-										<button type="submit" class="btn btn-info">Ingresar</button>
+										<button type="submit" class="btn btn-info" name="login" value="login">Ingresar</button>
 									</div>
 								</form>
 							</div>
@@ -76,6 +79,9 @@
 
 	<script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="../assets/js/main.js"></script>
+	<script src="../assets/js/superfish.min.js"></script>
+	<script src="../assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="../assets/js/vendor/bootstrap.min.js"></script>
 </body>
 
 </html>

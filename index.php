@@ -2,18 +2,13 @@
 
 <?php include 'cnx/coffee_list.php'; ?>
 
+<?php include 'cnx/coffee_type_list.php'; ?>
+
+<?php include 'components/alerts.php'; ?>
+
 <?php include 'components/modals.php'; ?>
 
-<!-- message form success -->
-<?php if (isset($_GET['e']) && $_GET['e'] == 'ok') : ?>
-	<div class="alert alert-success comment alert-dismissible fade show" role="alert">
-		<h3 class="text-success">Mensaje enviado !</h3>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
-<?php endif; ?>
-<!-- message form success -->
+<?php include 'cnx/db.php'; ?>
 
 <!-- start banner Area -->
 <section class="banner-area" id="home">
@@ -83,7 +78,7 @@
 			</div>
 		</div>
 		<div class="row" style="row-gap: 20px;">
-			<?php while ($coffee = $query->fetch_assoc()) : ?>
+			<?php foreach ($coffee_list as $coffee) : ?>
 				<?php if (isset($_GET['filter']) && $_GET['filter'] !== 'todos') : ?>
 					<?php if ($_GET['filter'] == $coffee['coffee_type']) : ?>
 						<div class="col-lg-4">
@@ -115,7 +110,7 @@
 						</div>
 					</div>
 				<?php endif; ?>
-			<?php endwhile; ?>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>

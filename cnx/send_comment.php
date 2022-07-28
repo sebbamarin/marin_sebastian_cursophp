@@ -1,4 +1,5 @@
 <?php
+include 'db.php';
 
 $user_name = $_POST['user_name'];
 $user_email = $_POST['user_email'];
@@ -6,20 +7,20 @@ $user_phone = $_POST['user_phone'];
 $user_comment = $_POST['user_comment'];
 
 $mail_body = "Nombre: " . $user_name . "\n"
-. "Email: " . $user_email . "\n"
-. "Telefono: " . $user_phone . "\n"
-. "Comentario: " . $user_comment . "\n";
+  . "Email: " . $user_email . "\n"
+  . "Telefono: " . $user_phone . "\n"
+  . "Comentario: " . $user_comment . "\n";
 
 mail($user_email, "Copia de mensaje de Smarin.online", $mail_body);
 
-if ($_SERVER['HTTP_HOST'] === 'cursophp.test') {
-  $cnx = mysqli_connect("localhost", "root", "", "cursophp") or exit("Error en la conexion");
+$query = "INSERT INTO contact_users (user_name, user_email, user_phone, user_comment) VALUES ('$user_name', '$user_email', '$user_phone', '$user_comment')";
+
+$result = mysqli_query($cnx, $query);
+
+if ($result) {
+  header("Location: /?ok=comment");
 } else {
-  $cnx = mysqli_connect("localhost", "c2061385_cursoph", "50vaDUsagi", "c2061385_cursoph") or exit("Error en la conexion");
+  header("Location: /?error=comment");
 }
 
-mysqli_query($cnx,"INSERT INTO contact_users (user_name, user_email, user_phone, user_comment) VALUES ('$user_name', '$user_email', '$user_phone', '$user_comment')");
-
 mysqli_close($cnx);
-
-header("Location: /?e=ok");

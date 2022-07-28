@@ -206,6 +206,39 @@
 
 
 //--------- Start menu Area -------------//
+.coffee-list-admin {
+	overflow: auto;
+	background-color: #441b00aa;
+}
+.coffee-list-admin::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    display: none;  /* Ocultar scroll */
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.coffee-list-admin::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.coffee-list-admin::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+/* Cambiamos el fondo cuando esté en active */
+.coffee-list-admin::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.coffee-list-admin::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo cuando esté en active o hover */
+.coffee-list-admin::-webkit-scrollbar-track:hover,
+.coffee-list-admin::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
 
 .menu-area{
 	background:url(../img/menu-bg.jpg) center;
@@ -225,6 +258,10 @@
 		color:$primary-color;
 		font-size:18px;
 		font-weight: 600;
+		width: -webkit-fill-available;
+		text-align: center;
+		max-width: fit-content;
+		margin-right: 1rem;
 	}
 	p{
 		margin-bottom:0;

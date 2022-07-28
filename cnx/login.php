@@ -1,16 +1,33 @@
 <?php
 
-$user_email = $_POST['user_email'];
-$user_password = $_POST['user_password'];
+include 'db.php';
 
-if ($_SERVER['HTTP_HOST'] === 'cursophp.test') {
-  $cnx = mysqli_connect("localhost", "root", "", "cursophp") or exit("Error en la conexion");
-} else {
-  $cnx = mysqli_connect("localhost", "c2061385_cursoph", "50vaDUsagi", "c2061385_cursoph") or exit("Error en la conexion");
+session_start();
+
+if (isset($_POST['login'])) {
+
+  $user_email = $_POST['user_email'];
+  $user_password = $_POST['user_password'];
+
+  $query = "SELECT * FROM users WHERE user_email='$user_email'";
+  $result = mysqli_query($cnx, $query) or die(mysqli_error($cnx));
+  $result = mysqli_fetch_array($result);
+
+  if (!$result) {
+    header("Location: /login/?error=login");
+  } else {
+    if (password_verify($user_password, $result['user_password'])) {
+      $_SESSION['user_id'] = $result['id_user'];
+      $_SESSION['user_rol'] = $result['user_rol'];
+      if($_SESSION['user_rol'] === '1') {
+        header("Location: /admin/");
+      } else {
+        header("Location: /");
+      }
+    } else {
+      header("Location: /login/?error=login");
+    }
+  }
+
+  mysqli_close($cnx);
 }
-
-$query = mysqli_query($cnx, "SELECT user_email, user_password FROM users WHERE (user_email = '$user_email' AND user_password = '$user_password')");
-
-mysqli_close($cnx);
-
-header("Location: /?l=ok");

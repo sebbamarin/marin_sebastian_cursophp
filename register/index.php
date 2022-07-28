@@ -1,3 +1,5 @@
+<?php include '../components/alerts.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 
@@ -59,12 +61,12 @@
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<input type="email" name="user_email" class="form-control" placeholder="Email" required>
+												<input type="number" name="user_phone" class="form-control" placeholder="Telefono" required pattern="\(?(\d{3})\)?[-\.\s]?(\d{3})[-\.\s]?(\d{4})">
 											</div>
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<input type="number" name="user_phone" class="form-control" placeholder="Telefono" required>
+												<input type="email" name="user_email" class="form-control" placeholder="Email" required pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}">
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -75,7 +77,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="/" class="btn btn-secondary">Cancelar</a>
-										<button type="submit" class="btn btn-info">Registrarme</button>
+										<button type="submit" class="btn btn-info" name="register" value="register">Registrarme</button>
 									</div>
 								</form>
 							</div>
@@ -89,6 +91,9 @@
 
 	<script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="../assets/js/main.js"></script>
+	<script src="../assets/js/superfish.min.js"></script>
+	<script src="../assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="../assets/js/vendor/bootstrap.min.js"></script>
 </body>
 
 </html>

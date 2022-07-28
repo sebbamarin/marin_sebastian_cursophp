@@ -2017,13 +2017,18 @@ h1, h2, h3, h4, h5, h6 {
   #nav-menu-container {
     display: none;
   }
+  .dropdown-menu {
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /* Nav Meu Styling */
 .nav-menu a {
   padding: 0 8px 0px 8px;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   color: #fff;
   font-weight: 400;
   font-size: 12px;
@@ -2070,6 +2075,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu ul ul {
   margin: 0;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block !important;
 }
 
 /* Mobile Nav Toggle */
@@ -2427,6 +2436,41 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+
+.coffee-list-admin {
+	overflow: auto;
+	background-color: #441b00aa;
+}
+.coffee-list-admin::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    /* display: none;  Ocultar scroll */
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.coffee-list-admin::-webkit-scrollbar-thumb {
+    background: #441b00aa;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.coffee-list-admin::-webkit-scrollbar-thumb:hover {
+    background: #863600aa;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+/* Cambiamos el fondo cuando esté en active */
+.coffee-list-admin::-webkit-scrollbar-thumb:active {
+    background-color: #863600aa;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.coffee-list-admin::-webkit-scrollbar-track {
+    background: #522100aa;
+    border-radius: 4px;
+}
+/* Cambiamos el fondo cuando esté en active o hover */
+.coffee-list-admin::-webkit-scrollbar-track:hover,
+.coffee-list-admin::-webkit-scrollbar-track:active {
+  background: #522100aa;
+}
+
 .menu-area {
   background: url(../img/menu-bg.jpg) center;
   background-size: cover;
@@ -2448,6 +2492,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #b68834;
   font-size: 18px;
   font-weight: 600;
+  width: -webkit-fill-available;
+  text-align: center;
+  max-width: fit-content;
+  margin-right: 1rem;
 }
 
 .single-menu p {

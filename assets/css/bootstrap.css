@@ -274,8 +274,7 @@ button {
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none !important;
 }
 
 input,
@@ -2832,7 +2831,7 @@ tbody.collapse.show {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 6rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
@@ -2953,7 +2952,7 @@ tbody.collapse.show {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #5F000033;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -4891,7 +4890,7 @@ button.close {
   display: flex;
 }
 
-.alert.alert-success.comment {
+.alert.comment {
   position: fixed;
   top: 0;
   left: 0;
@@ -4903,7 +4902,7 @@ button.close {
   z-index: 999;
   box-shadow: 0px 0px 0px 1000px #00000055;
 }
-.alert.alert-success.comment button:focus {
+.alert.comment button:focus {
   outline: none;
 }
 

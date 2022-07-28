@@ -1,3 +1,17 @@
+<?php include 'cnx/db.php'; ?>
+
+<?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+  $q = "SELECT * FROM users WHERE id_user='$user_id'";
+  $r = mysqli_query($cnx, $q) or die(mysqli_error($cnx));
+  $r = mysqli_fetch_array($r);
+  $user_name = $r['user_name'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 
@@ -43,7 +57,23 @@
             <li><a href="#coffee">Carta</a></li>
             <li><a href="#review">Nos recomiendan</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="/login">Ingresa</a></li>
+            <?php if (!isset($user_name)) : ?>
+              <li><a href="/login">Ingresa</a></li>
+            <?php else : ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?= $user_name; ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <?php if ($_SESSION['user_rol'] === '1') : ?>
+                    <a class="dropdown-item" href="/admin/">Admin</a>
+                  <?php endif; ?>
+                  <a class="dropdown-item" href="#">Editar</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/cnx/logout.php"><span class="lnr lnr-exit"></span> Salir</a>
+                </div>
+              </li>
+            <?php endif; ?>
           </ul>
         </nav><!-- #nav-menu-container -->
       </div>

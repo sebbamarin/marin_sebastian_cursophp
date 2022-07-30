@@ -27,13 +27,21 @@ CREATE TABLE IF NOT EXISTS `coffee_list` (
   `coffee_properties` text,
   `coffee_created_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_coffee`),
+<<<<<<< HEAD
   KEY `FK` (`coffee_type`) USING BTREE,
   CONSTRAINT `FK_coffee_list_coffee_type` FOREIGN KEY (`coffee_type`) REFERENCES `coffee_type` (`id_coffee_type`)
+=======
+  KEY `FK` (`coffee_type`) USING BTREE
+>>>>>>> develop
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla cursophp.coffee_list: ~11 rows (aproximadamente)
 /*!40000 ALTER TABLE `coffee_list` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `coffee_list` (`id_coffee`, `coffee_name`, `coffee_type`, `coffee_description`, `coffee_price`, `coffee_properties`, `coffee_created_by`) VALUES
+=======
+REPLACE INTO `coffee_list` (`id_coffee`, `coffee_name`, `coffee_type`, `coffee_description`, `coffee_price`, `coffee_properties`, `coffee_created_by`) VALUES
+>>>>>>> develop
 	(3, 'Cappuccino', 3, 'Nacida en Italia, preparada con café expreso y leche montada con vapor para darle cremosidad. Se agrega cacao en polvo y/o canela.', 250, NULL, NULL),
 	(4, 'Macchiato', 3, 'Es un café cortado típico de Italia, consiste en un expreso con una pequeña cantidad de leche caliente y espumada. En España se suele denominar café cortado.', 220, NULL, NULL),
 	(5, 'Mocha', 3, 'Es una variante del café con leche. Como este, suele llevar un tercio de expreso y dos tercios de leche vaporizada, pero se añade una parte de chocolate.', 270, NULL, NULL),
@@ -56,7 +64,11 @@ CREATE TABLE IF NOT EXISTS `coffee_type` (
 
 -- Volcando datos para la tabla cursophp.coffee_type: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `coffee_type` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `coffee_type` (`id_coffee_type`, `coffee_type_name`) VALUES
+=======
+REPLACE INTO `coffee_type` (`id_coffee_type`, `coffee_type_name`) VALUES
+>>>>>>> develop
 	(1, 'Espresso'),
 	(2, 'Latte'),
 	(3, 'Specials'),
@@ -76,7 +88,11 @@ CREATE TABLE IF NOT EXISTS `contact_users` (
 
 -- Volcando datos para la tabla cursophp.contact_users: ~17 rows (aproximadamente)
 /*!40000 ALTER TABLE `contact_users` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `contact_users` (`id_entry`, `user_name`, `user_email`, `user_phone`, `user_comment`, `date_comment`) VALUES
+=======
+REPLACE INTO `contact_users` (`id_entry`, `user_name`, `user_email`, `user_phone`, `user_comment`, `date_comment`) VALUES
+>>>>>>> develop
 	(1, 'seba', 'sebbamarin@gmail.com', '3412501514', 'asdasdasdasd', '2022-06-29 23:19:21'),
 	(2, 'asdfasdf', 'sadfasdf', '12341234', 'qwerqwer', '2022-06-29 23:21:40'),
 	(3, 'Sebamarin', 'sebbamarin@gmail.com', '3412505050', 'Mensaje de prueba cracken', '2022-06-30 01:42:32'),
@@ -105,7 +121,11 @@ CREATE TABLE IF NOT EXISTS `rol_user` (
 
 -- Volcando datos para la tabla cursophp.rol_user: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `rol_user` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `rol_user` (`id_rol`, `rol_name`) VALUES
+=======
+REPLACE INTO `rol_user` (`id_rol`, `rol_name`) VALUES
+>>>>>>> develop
 	(1, 'Admin'),
 	(2, 'Suscriptor');
 /*!40000 ALTER TABLE `rol_user` ENABLE KEYS */;
@@ -120,13 +140,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_phone` varchar(50) DEFAULT NULL,
   `user_rol` int(11) DEFAULT '2',
   PRIMARY KEY (`id_user`),
+<<<<<<< HEAD
   KEY `FK_users_rol_user` (`user_rol`),
   CONSTRAINT `FK_users_rol_user` FOREIGN KEY (`user_rol`) REFERENCES `rol_user` (`id_rol`)
+=======
+  KEY `FK_users_rol_user` (`user_rol`)
+>>>>>>> develop
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla cursophp.users: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `users` (`id_user`, `user_name`, `user_lastname`, `user_email`, `user_password`, `user_phone`, `user_rol`) VALUES
+=======
+REPLACE INTO `users` (`id_user`, `user_name`, `user_lastname`, `user_email`, `user_password`, `user_phone`, `user_rol`) VALUES
+>>>>>>> develop
 	(1, 'Sebastian', 'Marin', 'sebbamarin@gmail.com', NULL, '3434343434', 1),
 	(2, 'Usuario', 'User', 'user@gmail.com', NULL, '1212121212', 2),
 	(3, 'Susana', 'Morello', 'susu@morello.com.ar', 'chuchana1', '12121212', 2),

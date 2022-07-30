@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php include '../cnx/coffee_list.php'; ?>
 
 <?php include '../cnx/coffee_type_list.php'; ?>
@@ -7,11 +9,8 @@
 <?php include '../cnx/db.php'; ?>
 
 <?php
-session_start();
-
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_rol'] !== '1')) {
-	header('Location: /login/');
-	exit;
+	header('Location: /');
 } else {
 	$user_id = $_SESSION['user_id'];
 	$q = "SELECT * FROM users WHERE id_user='$user_id'";
@@ -41,7 +40,6 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_rol'] !== '1')) {
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<link rel="stylesheet" href="../assets/css/linearicons.css">
 	<style>
-
 		.del-product i {
 			font-size: 1.125rem;
 			font-weight: 600;

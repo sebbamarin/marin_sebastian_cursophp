@@ -1,8 +1,8 @@
+<?php session_start(); ?>
+
 <?php include 'cnx/db.php'; ?>
 
 <?php
-session_start();
-
 if (isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
   $q = "SELECT * FROM users WHERE id_user='$user_id'";
@@ -65,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
                   <?= $user_name; ?>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?php if ($_SESSION['user_rol'] === '1') : ?>
+                  <?php if ($_SESSION['user_rol'] == '1') : ?>
                     <a class="dropdown-item" href="/admin/">Admin</a>
                   <?php endif; ?>
                   <a class="dropdown-item" href="#">Editar</a>

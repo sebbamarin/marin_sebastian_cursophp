@@ -1,0 +1,102 @@
+#REDIRECCIÓN PERMANENTE DE DOMINIO WWW A SIN WWW
+#RewriteEngine on
+#Options +FollowSymLinks
+#RewriteCond %{HTTP_HOST} ^www\.smarin\.online$ [NC]
+#RewriteRule ^(.*)$ http://smarin.online/$1 [R=301,L]
+
+
+#REDIRECCIÓN DE UN DOMINIO VIEJO AL NUEVO
+#RewriteEngine On
+#RewriteRule ^(.*)$ http://nuevodominio.es/$1 [R=301,L]
+
+
+#CAMBIAR PÁGINA DE INICIO POR DEFECTO
+#DirectoryIndex pagina1.html pagina2.htm pagina3.html pagina4.php
+
+
+#PREVENIR ACCESO A LOS ARCHIVOS .htaccess
+#<files .htaccess>
+#order allow,deny
+#deny from all
+#</files>
+
+
+#DENEGAR EL ACCESO A UN DIRECTORIO
+#deny from all
+
+
+#EVITAR LISTADO DE DIRECTORIOS
+#IndexIgnore *
+
+
+#BLOQUEAR ACCESO DESDE DETERMINADAS IP
+#Order deny, allow
+#Allow from All
+#Deny from XXX.XXX.XXX.XXX
+#Deny from XXX.XXX.XXX.XXX
+
+
+#EVITA EL HOTLINK
+#RewriteEngine on
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?tudominio\.com/.*$ [NC]
+#RewriteRule .*\.(jpg|gif|bmp|png|mp4)$ [L]
+
+
+#SIRVE ARCHIVOS foo COMO ARCHIVOS php
+#AddType application/x-httpd-php .foo
+
+
+#OPCIÓN DE DESCARGAR LOS ARCHIVOS MULTIMEDIA
+#AddType application/octet-stream .avi
+#AddType application/octet-stream .mpg
+#AddType application/octet-stream .wmv
+#AddType application/octet-stream .mp3
+
+
+#COMPRIMIR ARCHIVOS DE TEXTO, HTML, JAVASCRIPT, CSS, XML
+#AddOutputFilterByType DEFLATE text/plain
+#AddOutputFilterByType DEFLATE text/html
+#AddOutputFilterByType DEFLATE text/xml
+#AddOutputFilterByType DEFLATE text/css
+#AddOutputFilterByType DEFLATE application/xml
+#AddOutputFilterByType DEFLATE application/xhtml+xml
+#AddOutputFilterByType DEFLATE application/rss+xml
+#AddOutputFilterByType DEFLATE application/javascript
+#AddOutputFilterByType DEFLATE application/x-javascript
+
+
+#CACHÉ DE IMÁGENES EN EL NAVEGADOR DURANTE UN MES
+#<FilesMatch "\.(ico|jpg|jpeg|png|gif)$">
+#Header set Cache-Control "max-age=2592000, public"
+#</FilesMatch>
+
+
+#FORZAR WWW
+#RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#O TAMBIÉN
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+#FORZAR SSL
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{HTTP_HOST} !^nuestro.site.local$  # Excluye nuestro sitio local
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+
+#SI OBTENEMOS ERROR 401 AL FORZAR EL SSL O NO LO HACE COMO ESPERÁBAMOS PODEMOS PROBAR CON ALGUNA DE ESTAS REGLAS DE REDIRECCIÓN (RewriteRule, comentadas) Y AÑADIENDO UNA NUEVA CONDICIÓN (RewriteCond)
+#RewriteCond %{HTTPS} !on
+#RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ ([^\ ]+)
+#RewriteRule (.*) https://%{HTTP_HOST}%2 [L,R=301]
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301]
+#RewriteRule ^.*$ https://%{HTTP_HOST}/$1 [R=301]
+#RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R,L]
+#RewriteRule ^.*$ https://%{SERVER_NAME}$1 [R,L]
+
+
+#SI QUEREMOS EXCLUIR LA REDIRECCIÓN A HTTPS EN NUESTRO ENTORNO LOCAL DE DESARROLLO:
+#RewriteCond %{HTTP_HOST} !^cursophp.test$
+#RewriteCond %{HTTPS} !on
+#RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ ([^\ ]+)
+#RewriteRule (.*) https://%{HTTP_HOST}%2 [L,R=301]
